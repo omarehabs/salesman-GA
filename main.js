@@ -3,7 +3,7 @@ const x = document.getElementById("x-coordinate");
 const y = document.getElementById("y-coordinate");
 const locationElements = document.querySelector(".container section .locations");
 const btnDrawRoutes = document.querySelector('.all-routes');
-const gen = document.querySelector('.gen');
+// const gen = document.querySelector('.gen');
 
 
 const allRutes = {};
@@ -226,7 +226,7 @@ function runMutationAndNewGen() {
     for (i = 0; i < 100; i++) {
 
       console.log(i, 'we are here in settime');
-      gen.innerHTML = i;
+      // gen.innerHTML = i;
 
       oldbest = fitness[best];
       console.log('oldbest', oldbest);
