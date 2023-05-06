@@ -220,35 +220,14 @@ console.log('kick off best', best);
 
 
 
+function renderOneFrame() {
+
+}
+
 
 function runMutationAndNewGen() {
-  setTimeout(() => {
-    for (i = 0; i < 100; i++) {
 
-      console.log(i, 'we are here in settime');
-      // gen.innerHTML = i;
 
-      oldbest = fitness[best];
-      console.log('oldbest', oldbest);
-      console.log('oldbest best', best);
-      nextGeneration();
-      console.log('after new gen populatipon', population);
-      calcFitness();
-      console.log('fitness after new gen', fitness);
-      normalizeFitness();
-      console.log('fitness after new  and normalize', fitness);
-      const newbestIndex = calcBest(fitness);
-      newbest = fitness[newbestIndex];
-      console.log('newbest best', best);
-
-      if (newbest > oldbest) {
-        best = newbestIndex;
-        drawBest();
-
-      }
-
-    }
-  }, 500);
 
 }
 
@@ -298,8 +277,44 @@ function normalizeFitness() {
 
 
 btnDrawRoutes.onclick = (e) => {
-  runMutationAndNewGen();
+
+
+
+  for (i = 0; i < 100; i++) {
+
+
+    (function () {
+      setTimeout(function () {
+
+        console.log(i, 'we are here in settime');
+        // gen.innerHTML = i;
+
+        oldbest = fitness[best];
+        console.log('oldbest', oldbest);
+        console.log('oldbest best', best);
+        nextGeneration();
+        console.log('after new gen populatipon', population);
+        calcFitness();
+        console.log('fitness after new gen', fitness);
+        normalizeFitness();
+        console.log('fitness after new  and normalize', fitness);
+        const newbestIndex = calcBest(fitness);
+        newbest = fitness[newbestIndex];
+        console.log('newbest best', best);
+
+        if (newbest > oldbest) {
+          best = newbestIndex;
+          drawBest();
+
+        }
+
+      }, 150);
+    })();
+  };
+
+  // runMutationAndNewGen();
 };
+
 function shuffleArr(array) {
   let tmp, current, top = array.length;
   if (top) while (--top) {
